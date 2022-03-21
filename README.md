@@ -1,12 +1,12 @@
-# 홈페이지 접속
+# 쿠버네티스 설치
 
 [kubernetis.io](https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/)
 
-# worker_node 들의 swap영역을 비활성화
+## worker_node 들의 swap영역을 비활성화
 
     swapoff -a && sed -i '/swap/s/^/#/' /etc/fstab
     
-# iptable을 k8s.conf를 통해 bridge에 연결
+## iptable을 k8s.conf를 통해 bridge에 연결
 
     cat <<EOF | sudo tee /etc/modules-load.d/k8s.conf
     br_netfilter
@@ -18,9 +18,9 @@
     EOF
     sudo sysctl --system
     
-## 오류발생시 kubelet의 동작 확인
+### 오류발생시 kubelet의 동작 확인
       journalctl -xeu kubelet
-### 쿠버네티스의 cgroup과 도커의 cgroup 이름이 일치하지 않아서 발생하는 문제
+#### 쿠버네티스의 cgroup과 도커의 cgroup 이름이 일치하지 않아서 발생하는 문제
 불일치 여부 확인
 
       sudo docker info | grep -i cgroup
@@ -38,15 +38,15 @@
     service docker restart
     
     
-# 방화벽 허용 시켜주기
+## 방화벽 허용 시켜주기
 웬만하면 이전단에 방화벽이 전부 구성되어 있다.
     
     systemctl stop firewalld && systemctl disable firewalld
     
-# kubeadm, kubelet, kubectl 설치
-  ## kubeadm : 큐브어드민, 쿠버네티스 운영 관리
-  ## kubelet : 데몬, 컨테이너조작 및 통신
-  ## kubectl : 쿠버네티스에 명령을 내릴때 사용
+## kubeadm, kubelet, kubectl 설치
+  ### kubeadm : 큐브어드민, 쿠버네티스 운영 관리
+  ### kubelet : 데몬, 컨테이너조작 및 통신(enable 시켜줘야함)
+  ### kubectl : 쿠버네티스에 명령을 내릴때 사용
 
     sudo apt-get update
     sudo apt-get install -y apt-transport-https ca-certificates curl
