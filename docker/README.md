@@ -1,6 +1,6 @@
 # 도커설치 
 
-## 1. 먼저 요구하는 패키지 설치
+## 요구하는 패키지 설치
 
     sudo apt-get install -y apt-transport-https \
     ca-certificates \
