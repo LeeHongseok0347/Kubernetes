@@ -17,3 +17,14 @@
 # 코드올리기
 
     sudo apt-get update
+    
+# git bash로그인
+
+    git config --global user.name "이름"
+    git config --global user.email "이메일"
+    cd '저장위치'
+    
+    git pull                #꺼내오기
+    git add                 #변경된 파일목록에 추가
+    git commit -m "맨트"    #실행
+    git push                #commit을 git에 업로드
