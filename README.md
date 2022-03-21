@@ -18,14 +18,11 @@
     EOF
     sudo sysctl --system
     
-### 오류발생시 kubelet의 동작 확인
-      journalctl -xeu kubelet
-#### 쿠버네티스의 cgroup과 도커의 cgroup 이름이 일치하지 않아서 발생하는 문제
-불일치 여부 확인
+## 중간 확인
 
-      sudo docker info | grep -i cgroup
-      # 출력
-      Cgroup Driver: cgroupfs -> systemd 여야 함
+    sudo docker info | grep -i cgroup
+    # 출력
+    Cgroup Driver: cgroupfs -> systemd 여야 함
       
 불일치시에 변경 명령어
 
@@ -58,3 +55,18 @@
     sudo apt-get update
     sudo apt-get install -y kubelet kubeadm kubectl
     sudo apt-mark hold kubelet kubeadm kubectl
+    
+    
+# 마스터 노드 admin 구성
+
+## sudo kubeadm init (root로 실행)
+API, controller, scheduller, efcd, coreDNS를 구성해준다
+※마지막 두줄은 키로써 복사해둔다.
+※오류발생시 kubeadm reset으로 재설정
+
+## 메세지에 나온 명령어 3줄을 입력해 구성 완료
+명령을 내려줄 사용자마다 해줘야함
+
+    mkdir -p $HOME/.kube
+    sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
+    sudo chown $(id -u):$(id -g) $HOME/.kube/config
