@@ -60,9 +60,9 @@
 # 마스터 노드 admin 구성
 
 ## sudo kubeadm init (root로 실행)
-**API, controller, scheduller, efcd, coreDNS를 구성해준다 
-**※마지막 두줄은 키로써 복사해둔다. 
-**※오류발생시 kubeadm reset으로 재설정 
+** API, controller, scheduller, efcd, coreDNS를 구성해준다 
+** ※마지막 두줄은 키로써 복사해둔다. 
+** ※오류발생시 kubeadm reset으로 재설정 
 
 ## 메세지에 나온 명령어 3줄을 입력해 구성 완료
 명령을 내려줄 사용자마다 해줘야함
