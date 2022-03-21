@@ -28,7 +28,7 @@
 
     cat <<EOF | sudo tee /etc/docker/daemon.json
     {
-      "exec-opts": ["native.cgroupdriver=systemd"]
+        "exec-opts": ["native.cgroupdriver=systemd"]
     }
     EOF
 
@@ -70,3 +70,10 @@ API, controller, scheduller, efcd, coreDNS를 구성해준다
     mkdir -p $HOME/.kube
     sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config
     sudo chown $(id -u):$(id -g) $HOME/.kube/config
+    
+## pod네트워크(CNI)를 설치
+노드들을 연결해주는 네트워크 설치   
+
+위브넷
+
+        kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
