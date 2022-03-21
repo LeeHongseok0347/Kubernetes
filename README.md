@@ -77,3 +77,9 @@ API, controller, scheduller, efcd, coreDNS를 구성해준다
 위브넷
 
         kubectl apply -f "https://cloud.weave.works/k8s/net?k8s-version=$(kubectl version | base64 | tr -d '\n')"
+        
+ # 워커노드 설정
+마스터 노드에서 복사해놓은 명령어와 키를 실행시켜 활성화 시킨다.   
+만일 실행이 안된다면 마스터에서 키를 다시 받아온다.
+
+    kubeadm token create --print-join-command
