@@ -84,7 +84,10 @@ API, controller, scheduller, efcd, coreDNS를 구성해준다
 
     kubeadm token create --print-join-command
     
-# kubectl 명령어 자동완성
+# kubectl, kubeadm 명령어 자동완성
 
     source <(kubectl completion bash)
     echo "source <(kubectl completion bash)" >> ~/.bashrc
+    
+    source <(kubeadm completion bash)
+    echo "source <(kubeadm completion bash)" >> ~/.bashrc
