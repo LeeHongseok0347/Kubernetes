@@ -83,3 +83,8 @@ API, controller, scheduller, efcd, coreDNS를 구성해준다
 만일 실행이 안된다면 마스터에서 키를 다시 받아온다.
 
     kubeadm token create --print-join-command
+    
+# kubectl 명령어 자동완성
+
+    source <(kubectl completion bash)
+    echo "source <(kubectl completion bash)" >> ~/.bashrc
