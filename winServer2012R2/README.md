@@ -6,7 +6,7 @@
 3.pw : 6글자 이상 숫자와 기호 포함  
 4.control pannel(제어판)에서 clock, language, region 에서 add language  
 5.오른쪽의 option을 클릭하고 기다린 후 클릭해 설치  
-6.로그아웃 후 재 로그인 하면 변경됨
+6.primary laguage 버튼을 눌러 로그아웃후 로그인
     
 ## iptable을 k8s.conf를 통해 bridge에 연결
 
